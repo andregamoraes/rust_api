@@ -1,27 +1,27 @@
-# Rust Project with Actix-Web, Diesel, and Docker Compose
+# Rust API with Actix-Web, Diesel, and Docker Compose
 
 ## 📌 Project Overview
 This project is a **Rust-based web application** using **Actix-Web** for the backend, **Diesel** as the ORM, and **PostgreSQL** as the database. The entire stack is containerized with **Docker Compose** to ensure consistency across environments.
 
 ## 🛠️ Setup Instructions
 
-### 1️⃣ Prerequisites
+### Prerequisites
 Ensure you have the following installed:
 - [Docker & Docker Compose](https://docs.docker.com/get-docker/)
 
-### 2️⃣ Clone the Repository
+### Clone the Repository
 ```sh
  git clone https://github.com/andregamoraes/rust_api.git
  cd rust_api
 ```
 
-## 3️⃣ Start the Database
+## Start the Database
 First, start the PostgreSQL database container:
 ```sh
 docker-compose up -d database
 ```
 
-## 4️⃣ Run Database Migrations
+## Run Database Migrations
 Once the database is running, apply the Diesel migrations:
 ```sh
 docker-compose up -d migrate
@@ -31,14 +31,13 @@ If you need to revert a migration:
 diesel migration revert
 ```
 
-## 5️⃣ Run the Application
+## Run the Application
 Finally, start the Rust application:
 ```sh
 docker-compose up --build app
 ```
-```
 
-### 6️⃣ Access the API
+## Access the API
 The backend runs on **http://localhost:8080** (or the port defined in your configuration).
 
 ## 📂 Project Structure
