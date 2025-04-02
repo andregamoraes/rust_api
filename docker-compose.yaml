@@ -1,0 +1,38 @@
+
+
+services:
+  database:
+    image: postgres
+    container_name: rust_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: app
+    restart: always
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://user:password@database:5432/database
+    ports:
+      - "8080:8080"
+
+  migrate:
+    build: .
+    container_name: migrate
+    depends_on:
+      - database
+    entrypoint: ["sh", "-c", "diesel migration run"]
+    environment:
+      DATABASE_URL: postgres://user:password@database:5432/database
+    restart: "no"
+volumes:
+  pgdata:
