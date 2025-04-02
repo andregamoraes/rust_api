@@ -26,10 +26,6 @@ Once the database is running, apply the Diesel migrations:
 ```sh
 docker-compose up -d migrate
 ```
-If you need to revert a migration:
-```sh
-diesel migration revert
-```
 
 ## Run the Application
 Finally, start the Rust application:
