@@ -46,7 +46,6 @@ The backend runs on **http://localhost:8080** (or the port defined in your confi
 │── migrations/        # Diesel migration files
 │── Dockerfile         # Docker container configuration
 │── docker-compose.yml # Docker Compose setup
-│── .env               # Environment variables
 │── Cargo.toml         # Rust dependencies and metadata
 ```
 
@@ -56,6 +55,18 @@ The backend runs on **http://localhost:8080** (or the port defined in your confi
 | GET    | /users       | Get all users       |
 | GET    | /users?name=John | Get users by name |
 | POST   | /users       | Create a new user   |
+
+### 🧾 Request Body for `POST /users`
+
+To create a user, send a JSON payload like this:
+
+```json
+{
+  "name": "Pedro Paulo",
+  "email": "pedro@email.com",
+  "password": "mypassword"
+}
+```
 
 ## 🛑 Stopping and Cleaning Up
 To stop the running containers:
