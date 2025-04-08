@@ -62,8 +62,8 @@ To create a user, send a JSON payload like this:
 
 ```json
 {
-  "name": "Pedro Paulo",
-  "email": "pedro@email.com",
+  "name": "user",
+  "email": "user@email.com",
   "password": "mypassword"
 }
 ```
